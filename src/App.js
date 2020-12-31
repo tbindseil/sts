@@ -1,24 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
 import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" />
+
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Welcome to Students Teaching Students!
+        <br/>
+          We empower students to help other students.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button variant="primary">Primary</Button>{'TEST'}
+
+        <ButtonGroup aria-label="Basic example">
+          <Button variant="primary">Register</Button>
+          <Button variant="primary">Sign In</Button>
+        </ButtonGroup>
       </header>
     </div>
   );
