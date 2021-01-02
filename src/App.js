@@ -1,11 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import {Switch, Route, Link} from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/register" component={Register}/>
+        <Route path="/signin" component={SignIn}/>
+      </Switch>
+    </div>
+  );
+}
+
+const Home = () => {
+  return (
+    <div className="Home">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
 
@@ -15,10 +26,42 @@ function App() {
           We empower students to help other students.
         </p>
 
-        <ButtonGroup aria-label="Basic example">
-          <Button variant="primary">Register</Button>
-          <Button variant="primary">Sign In</Button>
-        </ButtonGroup>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
+          <li>
+            <Link to="/signin">Sign In</Link>
+          </li>
+        </ul>
+      </header>
+
+    </div>
+  );
+}
+
+const Register = () => {
+  return (
+    <div className="Register">
+      <header className="App-header">
+        <p>
+          Register here.
+        </p>
+      </header>
+    </div>
+  );
+}
+
+const SignIn = () => {
+  return (
+    <div className="SignIn">
+      <header className="App-header">
+        <p>
+          Sign in here.
+        </p>
       </header>
     </div>
   );
