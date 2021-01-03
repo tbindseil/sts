@@ -26,6 +26,33 @@ class SignIn extends Component {
         submittedUsername: username
       });
     }
+
+    const url = 'https://2imibo4i59.execute-api.us-west-2.amazonaws.com/prod/';
+    fetch(url)
+      .then(response => response.json())
+      .then(data => console.log(data));
+
+    // Example GET method implementation:
+    /*async function getData(url = '') {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            headers: {
+              'Access-Control-Allow-Origin': '*'
+            }
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    const url = 'https://2imibo4i59.execute-api.us-west-2.amazonaws.com/prod/';
+    getData(url)
+      .then(data => {
+        console.log(data); // JSON data parsed by `data.json()` call
+      })
+      .catch(error => {
+        console.log(error);
+      });*/
   };
 
   render() {
