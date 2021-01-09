@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 class SignIn extends Component {
   state = {
-    username: "",
-    submittedUsername: ""
+    email: "",
+    submittedEmail: ""
   };
 
   handleInputChange = event => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    if (name === "username") {
+    if (name === "email") {
       this.setState({
         [name]: value
       });
@@ -20,14 +20,14 @@ class SignIn extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const username = this.state;
-    if (username !== "") {
+    const email = this.state;
+    if (email !== "") {
       this.setState({
-        submittedUsername: username
+        submittedEmail: email
       });
     }
 
-    const url = 'https://2imibo4i59.execute-api.us-west-2.amazonaws.com/prod/';
+    const url = 'https://fep5kkldzj.execute-api.us-west-2.amazonaws.com/prod/';
     fetch(url)
       .then(response => response.json())
       .then(data => console.log(data));
@@ -66,9 +66,9 @@ class SignIn extends Component {
           onChange={this.handleInputChange}
         />
 
-        {(this.state.submittedUsername !== "")
+        {(this.state.submittedEmail !== "")
             ?
-          `hello ${this.state.username}`
+          `hello ${this.state.email}`
             :
           <p/>
         }
@@ -77,7 +77,7 @@ class SignIn extends Component {
   }
 }
 
-const SignInForm = ({username, password, confirmPassword, onChange, onSubmit}) => {
+const SignInForm = ({email, password, confirmPassword, onChange, onSubmit}) => {
   return (
     <div>
 
@@ -85,9 +85,9 @@ const SignInForm = ({username, password, confirmPassword, onChange, onSubmit}) =
         <input
             type="text"
             className="form-control"
-            placeholder="Username"
-            value={username}
-            name="username"
+            placeholder="Email"
+            value={email}
+            name="email"
             onChange={onChange}
         />
 

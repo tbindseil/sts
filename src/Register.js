@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 class Register extends Component {
 
   state = {
-    username: "",
-    submittedUsername: ""
+    email: "",
+    submittedEmail: ""
   };
 
   handleInputChange = event => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
-    if (name === "username") {
+    if (name === "email") {
       this.setState({
         [name]: value
       });
@@ -21,10 +21,10 @@ class Register extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const username = this.state;
-    if (username !== "") {
+    const email = this.state;
+    if (email !== "") {
       this.setState({
-        submittedUsername: username
+        submittedEmail: email
       });
     }
   };
@@ -40,9 +40,9 @@ class Register extends Component {
           onChange={this.handleInputChange}
         />
 
-        {(this.state.submittedUsername !== "")
+        {(this.state.submittedEmail !== "")
             ?
-          `hello ${this.state.username}`
+          `hello ${this.state.email}`
             :
           <p/>
         }
@@ -51,7 +51,7 @@ class Register extends Component {
   }
 }
 
-const RegisterForm = ({username, password, confirmPassword, onChange, onSubmit}) => {
+const RegisterForm = ({email, password, confirmPassword, onChange, onSubmit}) => {
   return (
     <div>
 
@@ -59,9 +59,9 @@ const RegisterForm = ({username, password, confirmPassword, onChange, onSubmit})
         <input
             type="text"
             className="form-control"
-            placeholder="Username"
-            value={username}
-            name="username"
+            placeholder="Email"
+            value={email}
+            name="email"
             onChange={onChange}
         />
 
